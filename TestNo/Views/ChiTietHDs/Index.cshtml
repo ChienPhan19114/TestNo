@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TestNo.Models.ChiTietHD>
+
+@{
+    ViewData["Title"] = "CHI TIẾT HÓA ĐƠN";
+}
+
+<h1>CHI TIẾT HÓA ĐƠN</h1>
+
+<style>
+    .button{border-radius:8px;
+            color:white;
+            font-size:16px;
+            padding:10px 20px
+    }
+    .button1{background-color:steelblue;}
+    .button2{background-color:orange;}
+    .button3{background-color:lightskyblue;}
+    .button4{background-color:red;}
+</style>
+<p>
+    <a asp-action="Create" class="button button1">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SoLuong" class="button button2">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SoLuong" class="button button3">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SoLuong" class="button button4">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

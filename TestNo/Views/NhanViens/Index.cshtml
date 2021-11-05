@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TestNo.Models.NhanVien>
+
+@{
+    ViewData["Title"] = "DANH SÁCH NHÂN VIÊN";
+}
+
+<h1>DANH SÁCH NHÂN VIÊN</h1>
+
+<style>
+    .button{border-radius:8px;
+            color:white;
+            font-size:16px;
+            padding:10px 20px
+    }
+    .button1{background-color:steelblue;}
+    .button2{background-color:orange;}
+    .button3{background-color:lightskyblue;}
+    .button4{background-color:red;}
+</style>
+<p>
+    <a asp-action="Create" class="open-button" onclick="openForm()">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaNV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoNV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DienThoai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoai)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaNV" class="button button2">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaNV" class="button button3">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaNV" class="button button4">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
