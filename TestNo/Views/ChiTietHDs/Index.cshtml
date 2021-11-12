@@ -5,21 +5,8 @@
 }
 
 <h1>CHI TIẾT HÓA ĐƠN</h1>
+@await Html.PartialAsync("_CreatePartial", new ChiTietHD())
 
-<style>
-    .button{border-radius:8px;
-            color:white;
-            font-size:16px;
-            padding:10px 20px
-    }
-    .button1{background-color:steelblue;}
-    .button2{background-color:orange;}
-    .button3{background-color:lightskyblue;}
-    .button4{background-color:red;}
-</style>
-<p>
-    <a asp-action="Create" class="button button1">Create</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -35,7 +22,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+       @foreach (var item in Model) 
+       {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MaHD)
@@ -47,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SoLuong" class="button button2">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SoLuong" class="button button3">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SoLuong" class="button button4">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.SoLuong" class="btn btn-warning btn-sm">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SoLuong" class="btn btn-info btn-sm">Details</a> |
+                @await Html.PartialAsync("_DeletePartial", new ChiTietHD())
             </td>
         </tr>
 }

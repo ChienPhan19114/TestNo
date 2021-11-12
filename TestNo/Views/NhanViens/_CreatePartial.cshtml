@@ -1,0 +1,69 @@
+﻿@model TestNo.Models.NhanVien
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .modal-body {
+        column-count: 2;
+    }
+</style>
+
+<p>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CreateNV">
+        Create
+    </button>
+</p>
+<div class="modal fade" id="CreateNV" tabindex="-1" aria-labelledby="CreateNVLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="CreateNVLabel">Thêm nhân viên mới</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="col">
+                    <div class="col-md-12">
+                        <form asp-action="Create">
+                            <div class="form-group">
+                                <label asp-for="HoNV" class="control-label"></label>
+                                <input asp-for="HoNV" class="form-control" />
+                                <span asp-validation-for="HoNV" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="TenNV" class="control-label"></label>
+                                <input asp-for="TenNV" class="form-control" />
+                                <span asp-validation-for="TenNV" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="GioiTinh" class="control-label"></label>
+                                <select class="form-control" id="GioiTinh" name="GioiTinh">
+                                    <option>Chọn</option>
+                                    <option>Nam</option>
+                                    <option>Nữ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NgaySinh" class="control-label"></label>
+                                <input asp-for="NgaySinh" class="form-control" />
+                                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DiaChi" class="control-label"></label>
+                                <input asp-for="DiaChi" class="form-control" />
+                                <span asp-validation-for="DiaChi" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DienThoai" class="control-label"></label>
+                                <input asp-for="DienThoai" class="form-control" />
+                                <span asp-validation-for="DienThoai" class="text-danger"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

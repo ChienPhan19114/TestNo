@@ -1,0 +1,52 @@
+﻿@model TestNo.Models.KhachHang
+<p>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CreateKH">
+        Create
+    </button>
+</p>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    .modal-body {
+        column-count: 2;
+        column-gap: 40px;
+    }
+</style>
+<div class="modal fade" id="CreateKH" tabindex="-1" aria-labelledby="CreateKHLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="CreateKHLabel">Thêm nhân viên mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="col">
+                    <div class="col-md-12">
+                        <form asp-action="Create">
+                            <div class="form-group">
+                                <label asp-for="HoTenKH" class="control-label"></label>
+                                <input asp-for="HoTenKH" class="form-control" />
+                                <span asp-validation-for="HoTenKH" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DiaChi" class="control-label"></label>
+                                <input asp-for="DiaChi" class="form-control" />
+                                <span asp-validation-for="DiaChi" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DienThoai" class="control-label"></label>
+                                <input asp-for="DienThoai" class="form-control" />
+                                <span asp-validation-for="DienThoai" class="text-danger"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
